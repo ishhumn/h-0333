@@ -7,10 +7,10 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-left">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance leading-tight">
-            Innovating the Digital Employee Experience with AI
+            Empowering the Future of Work with AI
           </h1>
           <p className="text-lg md:text-xl text-neutral-300 mb-8">
-            Empower your workforce with AI-powered virtual assistants and affordable prototyping solutions that transform the way you work.
+            Innovating Digital Employee Experiences with AI-Powered Solutions that transform the way you work.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/products" className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">

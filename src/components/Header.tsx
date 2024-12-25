@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, Lock } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,6 +24,10 @@ const Header = () => {
           </Link>
           <Link to="/contact" className="text-neutral-400 hover:text-white transition-colors">
             Contact
+          </Link>
+          <Link to="/admin" className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2">
+            <Lock className="w-4 h-4" />
+            Admin
           </Link>
           <button className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors">
             Schedule Demo
@@ -52,6 +56,10 @@ const Header = () => {
             </Link>
             <Link to="/contact" className="text-neutral-400 hover:text-white transition-colors">
               Contact
+            </Link>
+            <Link to="/admin" className="text-neutral-400 hover:text-white transition-colors flex items-center gap-2">
+              <Lock className="w-4 h-4" />
+              Admin
             </Link>
             <button className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors">
               Schedule Demo
