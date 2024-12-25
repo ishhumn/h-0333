@@ -4,24 +4,34 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="pt-32 pb-16 container-padding bg-primary text-white">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance leading-tight">
-          Innovating the Digital Employee Experience with AI
-        </h1>
-        <p className="text-lg md:text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
-          Empower your workforce with AI-powered virtual assistants and affordable prototyping solutions that transform the way you work.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/products" className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
-            Explore Products
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
-            Schedule a Demo
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
-            Join Our Events
-          </button>
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="text-left">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance leading-tight">
+            Innovating the Digital Employee Experience with AI
+          </h1>
+          <p className="text-lg md:text-xl text-neutral-300 mb-8">
+            Empower your workforce with AI-powered virtual assistants and affordable prototyping solutions that transform the way you work.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/products" className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+              Explore Products
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
+              Schedule a Demo
+            </button>
+            <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
+              Join Our Events
+            </button>
+          </div>
+        </div>
+        <div className="relative animate-float">
+          <img
+            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+            alt="AI Technology"
+            className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+          />
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-accent/20 to-transparent mix-blend-overlay" />
         </div>
       </div>
       <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
