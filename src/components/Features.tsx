@@ -1,25 +1,35 @@
-import { Check, CreditCard, BarChart, Globe, Clock } from "lucide-react";
+import { Bot, Rocket, Brain, Shield, Clock, Users } from "lucide-react";
 
 const features = [
   {
-    title: "Simple Checkout",
-    description: "Streamlined checkout process optimized for conversion and user experience.",
-    icon: CreditCard,
+    title: "AI-Powered Assistant",
+    description: "24/7 intelligent support with natural language processing and continuous learning capabilities.",
+    icon: Bot,
   },
   {
-    title: "Recurring Billing",
-    description: "Automated billing system for subscriptions and recurring payments.",
+    title: "Rapid Prototyping",
+    description: "Transform ideas into functional prototypes quickly and affordably.",
+    icon: Rocket,
+  },
+  {
+    title: "Advanced Analytics",
+    description: "Gain insights from your data with our advanced AI analytics tools.",
+    icon: Brain,
+  },
+  {
+    title: "Enterprise Security",
+    description: "Bank-grade security measures to protect your sensitive data.",
+    icon: Shield,
+  },
+  {
+    title: "Quick Integration",
+    description: "Seamless integration with your existing tools and workflows.",
     icon: Clock,
   },
   {
-    title: "Global Payments",
-    description: "Accept payments from customers anywhere in the world.",
-    icon: Globe,
-  },
-  {
-    title: "Detailed Analytics",
-    description: "Get insights into your business with comprehensive reporting.",
-    icon: BarChart,
+    title: "Team Collaboration",
+    description: "Enhanced team productivity with AI-powered collaboration tools.",
+    icon: Users,
   },
 ];
 
@@ -28,12 +38,12 @@ const Features = () => {
     <section id="features" className="py-16 container-padding">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Everything You Need to Run & Grow Your Business
+          Transforming Workplaces with AI
         </h2>
         <p className="text-neutral-600 text-center mb-12 max-w-2xl mx-auto">
-          All the tools and features you need to accept payments, manage subscriptions, and scale your business globally.
+          Discover how our AI solutions can revolutionize your digital workplace experience.
         </p>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="glass-card p-8 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
