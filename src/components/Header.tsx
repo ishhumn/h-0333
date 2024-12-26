@@ -1,6 +1,7 @@
 import { Menu, X, Lock } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,8 +9,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/90 backdrop-blur-lg border-b border-neutral-800">
       <nav className="container-padding mx-auto flex h-16 items-center justify-between">
-        <Link to="/" className="text-xl font-semibold text-white">
-          AI-Solutions
+        <Link to="/" className="hover:opacity-90 transition-opacity">
+          <Logo />
         </Link>
         
         <div className="hidden md:flex items-center gap-8">
