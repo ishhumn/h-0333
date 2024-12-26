@@ -4,6 +4,9 @@ export interface ContactSubmission {
   id: number;
   name: string;
   email: string;
+  phone?: string;
+  company?: string;
+  country?: string;
   message: string;
   date: string;
   status: 'New' | 'Pending' | 'Responded';
