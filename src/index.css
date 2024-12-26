@@ -17,7 +17,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-lg;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg;
   }
   
   .container-padding {
