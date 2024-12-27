@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useContactSubmissions } from "@/hooks/useContactSubmissions";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
@@ -13,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { getInquiries, setInquiries, type ContactInquiry } from "@/utils/localStorage";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,13 +24,23 @@ const Contact = () => {
     message: ""
   });
   
-  const { addSubmission } = useContactSubmissions();
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addSubmission(formData);
+    
+    const newInquiry: ContactInquiry = {
+      id: Date.now().toString(),
+      ...formData,
+      date: new Date().toISOString().split('T')[0],
+      status: 'New'
+    };
+
+    const currentInquiries = getInquiries();
+    setInquiries([...currentInquiries, newInquiry]);
+    
     setFormData({ name: "", email: "", phone: "", company: "", country: "", message: "" });
+    
     toast({
       title: "Thank you for reaching out!",
       description: "We'll get back to you shortly.",
