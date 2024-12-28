@@ -17,6 +17,12 @@ const Dashboard = () => {
     ? testimonials.reduce((acc, curr) => acc + curr.rating, 0) / testimonials.length
     : 0;
 
+  // Calculate customer satisfaction percentage
+  const satisfiedCustomers = testimonials.filter(t => t.rating >= 4).length;
+  const satisfactionRate = testimonials.length > 0
+    ? (satisfiedCustomers / testimonials.length) * 100
+    : 0;
+
   // Prepare chart data
   const last7Days = [...Array(7)].map((_, i) => {
     const date = new Date();
@@ -51,11 +57,11 @@ const Dashboard = () => {
           <p className="text-3xl font-bold">{totalInquiries}</p>
         </Card>
         <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-2">New Inquiries</h3>
-          <p className="text-3xl font-bold">{newInquiries}</p>
+          <h3 className="text-lg font-semibold mb-2">Customer Satisfaction</h3>
+          <p className="text-3xl font-bold">{satisfactionRate.toFixed(1)}%</p>
         </Card>
         <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-2">Customer Satisfaction</h3>
+          <h3 className="text-lg font-semibold mb-2">Average Rating</h3>
           <p className="text-3xl font-bold">{averageRating.toFixed(1)}/5.0</p>
         </Card>
       </div>
@@ -88,6 +94,34 @@ const Dashboard = () => {
                 <Bar dataKey="count" fill="#8884d8" />
               </BarChart>
             </ResponsiveContainer>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-6">
+        <Card className="p-6">
+          <h2 className="text-xl font-semibold mb-4">Recent Reviews</h2>
+          <div className="space-y-4">
+            {testimonials.slice(-5).reverse().map((testimonial) => (
+              <div key={testimonial.id} className="p-4 border rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-500">
+                    {new Date(testimonial.date).toLocaleDateString()}
+                  </span>
+                </div>
+                <p className="text-gray-600">{testimonial.message}</p>
+              </div>
+            ))}
           </div>
         </Card>
       </div>
