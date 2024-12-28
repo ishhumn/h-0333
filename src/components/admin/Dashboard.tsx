@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { Card } from "@/components/ui/card";
+import { Star } from "lucide-react";
 import { getInquiries, getTestimonials } from "@/utils/localStorage";
 
 const Dashboard = () => {
