@@ -44,11 +44,11 @@ const Dashboard = () => {
 
   // Rating distribution data
   const ratingDistribution = Array.from({ length: 5 }, (_, i) => ({
-    rating: i + 1,
-    count: testimonials.filter(t => Math.round(t.rating) === i + 1).length
+    name: `${i + 1} Star${i === 0 ? '' : 's'}`,
+    value: testimonials.filter(t => Math.round(t.rating) === i + 1).length
   }));
 
-  const COLORS = ['#22c55e', '#eab308', '#3b82f6'];
+  const COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#22c55e'];
 
   return (
     <div>
@@ -87,13 +87,23 @@ const Dashboard = () => {
           <h2 className="text-xl font-semibold mb-4">Customer Ratings Distribution</h2>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={ratingDistribution}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="rating" />
-                <YAxis />
+              <PieChart>
+                <Pie
+                  data={ratingDistribution}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                  outerRadius={100}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {ratingDistribution.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
                 <Tooltip />
-                <Bar dataKey="count" fill="#8884d8" />
-              </BarChart>
+              </PieChart>
             </ResponsiveContainer>
           </div>
         </Card>
