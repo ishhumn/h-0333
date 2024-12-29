@@ -23,9 +23,11 @@ const Events = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="space-y-16">
             <EventTimeline />
-            <EventRegistrationForm />
+            <div className="max-w-xl mx-auto">
+              <EventRegistrationForm />
+            </div>
           </div>
         </div>
       </main>
