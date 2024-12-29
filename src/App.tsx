@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products";
+import Events from "./pages/Events";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<div>Gallery Page - Coming Soon</div>} />
           <Route path="/blog" element={<div>Blog Page - Coming Soon</div>} />
           <Route path="/contact" element={<Contact />} />

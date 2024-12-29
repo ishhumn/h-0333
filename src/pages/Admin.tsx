@@ -6,6 +6,7 @@ import ProductsManagement from "@/components/admin/ProductsManagement";
 import GalleryManagement from "@/components/admin/GalleryManagement";
 import BlogManagement from "@/components/admin/BlogManagement";
 import TestimonialsManagement from "@/components/admin/TestimonialsManagement";
+import EventsManagement from "@/components/admin/EventsManagement";
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -20,6 +21,7 @@ const Admin = () => {
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="inquiries">Inquiries</TabsTrigger>
             <TabsTrigger value="products">Products</TabsTrigger>
+            <TabsTrigger value="events">Events</TabsTrigger>
             <TabsTrigger value="gallery">Gallery</TabsTrigger>
             <TabsTrigger value="blog">Blog</TabsTrigger>
             <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
@@ -35,6 +37,10 @@ const Admin = () => {
 
           <TabsContent value="products">
             <ProductsManagement />
+          </TabsContent>
+
+          <TabsContent value="events">
+            <EventsManagement />
           </TabsContent>
 
           <TabsContent value="gallery">

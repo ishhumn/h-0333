@@ -20,9 +20,9 @@ const Hero = () => {
             <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
               Schedule a Demo
             </button>
-            <button className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
+            <Link to="/events" className="bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-colors">
               Join Our Events
-            </button>
+            </Link>
           </div>
         </div>
         <div className="relative animate-float">

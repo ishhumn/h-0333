@@ -42,12 +42,34 @@ export interface ContactInquiry {
   status: InquiryStatus;
 }
 
+export interface Event {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+}
+
+export interface EventRegistration {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  eventName: string;
+  numberOfTickets: string;
+  date: string;
+  status: 'Pending' | 'Confirmed' | 'Cancelled';
+}
+
 const STORAGE_KEYS = {
   PRODUCTS: 'products',
   GALLERY: 'gallery',
   BLOG_POSTS: 'blogPosts',
   TESTIMONIALS: 'testimonials',
-  INQUIRIES: 'contactInquiries'
+  INQUIRIES: 'contactInquiries',
+  EVENTS: 'events',
+  EVENT_REGISTRATIONS: 'eventRegistrations'
 };
 
 export const getStorageItem = <T>(key: string): T[] => {
@@ -73,3 +95,9 @@ export const setTestimonials = (testimonials: Testimonial[]) => setStorageItem(S
 
 export const getInquiries = (): ContactInquiry[] => getStorageItem(STORAGE_KEYS.INQUIRIES);
 export const setInquiries = (inquiries: ContactInquiry[]) => setStorageItem(STORAGE_KEYS.INQUIRIES, inquiries);
+
+export const getEvents = (): Event[] => getStorageItem(STORAGE_KEYS.EVENTS);
+export const setEvents = (events: Event[]) => setStorageItem(STORAGE_KEYS.EVENTS, events);
+
+export const getEventRegistrations = (): EventRegistration[] => getStorageItem(STORAGE_KEYS.EVENT_REGISTRATIONS);
+export const setEventRegistrations = (registrations: EventRegistration[]) => setStorageItem(STORAGE_KEYS.EVENT_REGISTRATIONS, registrations);
