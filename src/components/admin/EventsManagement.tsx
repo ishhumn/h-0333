@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Calendar, Edit, Trash2 } from "lucide-react";
-import { getEvents, setEvents, getEventRegistrations, setEventRegistrations } from "@/utils/localStorage";
+import { getEvents, setEvents, getEventRegistrations, setEventRegistrations, EventRegistration } from "@/utils/localStorage";
 
 const EventsManagement = () => {
   const [events, setEventsState] = useState(getEvents());
@@ -86,7 +86,7 @@ const EventsManagement = () => {
     });
   };
 
-  const handleUpdateRegistrationStatus = (id: string, status: string) => {
+  const handleUpdateRegistrationStatus = (id: string, status: "Pending" | "Confirmed" | "Cancelled") => {
     const updatedRegistrations = registrations.map((reg) =>
       reg.id === id ? { ...reg, status } : reg
     );
@@ -212,7 +212,10 @@ const EventsManagement = () => {
                   </div>
                   <select
                     value={registration.status}
-                    onChange={(e) => handleUpdateRegistrationStatus(registration.id, e.target.value)}
+                    onChange={(e) => handleUpdateRegistrationStatus(
+                      registration.id,
+                      e.target.value as "Pending" | "Confirmed" | "Cancelled"
+                    )}
                     className="text-sm border rounded px-2 py-1"
                   >
                     <option value="Pending">Pending</option>
