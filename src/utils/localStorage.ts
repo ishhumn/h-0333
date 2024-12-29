@@ -99,5 +99,42 @@ export const setInquiries = (inquiries: ContactInquiry[]) => setStorageItem(STOR
 export const getEvents = (): Event[] => getStorageItem(STORAGE_KEYS.EVENTS);
 export const setEvents = (events: Event[]) => setStorageItem(STORAGE_KEYS.EVENTS, events);
 
+// Initialize events with some default data if none exist
+const initializeEvents = () => {
+  const events = getEvents();
+  if (events.length === 0) {
+    const defaultEvents: Event[] = [
+      {
+        id: "1",
+        title: "AI Innovation Summit 2024",
+        date: "2024-06-15",
+        time: "09:00 AM",
+        location: "Tech Convention Center, Silicon Valley",
+        description: "Join us for an exciting AI workshop where you'll learn the latest in AI technology and network with industry leaders."
+      },
+      {
+        id: "2",
+        title: "Future of Work Conference",
+        date: "2024-07-20",
+        time: "10:00 AM",
+        location: "Digital Hub, New York",
+        description: "Attend our annual tech conference featuring industry leaders and innovative startups showcasing the future of workplace technology."
+      },
+      {
+        id: "3",
+        title: "AI Networking Mixer",
+        date: "2024-08-10",
+        time: "06:00 PM",
+        location: "Innovation Lab, Boston",
+        description: "Don't miss our networking event designed to connect professionals in the tech industry with a focus on AI and machine learning."
+      }
+    ];
+    setEvents(defaultEvents);
+  }
+};
+
+// Call initialization when the module loads
+initializeEvents();
+
 export const getEventRegistrations = (): EventRegistration[] => getStorageItem(STORAGE_KEYS.EVENT_REGISTRATIONS);
 export const setEventRegistrations = (registrations: EventRegistration[]) => setStorageItem(STORAGE_KEYS.EVENT_REGISTRATIONS, registrations);

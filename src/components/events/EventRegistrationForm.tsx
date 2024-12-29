@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { getEventRegistrations, setEventRegistrations } from "@/utils/localStorage";
+import { EventRegistration } from "@/utils/localStorage";
 
 const EventRegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -20,11 +21,11 @@ const EventRegistrationForm = () => {
     e.preventDefault();
     
     const registrations = getEventRegistrations();
-    const newRegistration = {
+    const newRegistration: EventRegistration = {
       id: crypto.randomUUID(),
       ...formData,
       date: new Date().toISOString(),
-      status: "Pending",
+      status: "Pending" as const, // This fixes the type error
     };
 
     setEventRegistrations([...registrations, newRegistration]);
